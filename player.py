@@ -25,7 +25,7 @@ def callback(ch, method, properties, body):
     result = choices.get(body, 'none')
     print(" [x] Received %r" % result)
     if result != 'none':
-        call(['mpv', result])
+        call(['mpg123', result])
 
 
 channel.basic_consume(callback,

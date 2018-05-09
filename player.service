@@ -1,0 +1,18 @@
+[Unit]
+Description=IoT Player
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStartPre=/usr/bin/amixer -c 0 cset numid=3 1
+
+# Start main service
+ExecStart=/usr/local/bin/player.py
+
+
+# Give up if ping don't get an answer
+TimeoutSec=20
+
+Restart=always
+PrivateTmp=false
